@@ -34,3 +34,11 @@
 (defun nrepl-unlimit-print-length ()
   (interactive)
   (nrepl-send-string-sync "(set! *print-length* nil)" "clojure.core"))
+
+(when (>= emacs-major-version 24)
+  (require 'package)
+  (add-to-list
+   'package-archives
+   '("melpa" . "http://melpa.org/packages/")
+   t)
+  (package-initialize))
